@@ -5,8 +5,48 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Website</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            .courses {
+                cursor:pointer;
+                color:black;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            li { 
+                text-align: left;
+                font-weight: bold;
+                margin: 0px 20px;
+            }
+            .desc {
+                text-align: left;
+            }
+            #COMP1712 {
+                background-color:rgba(25, 0, 255, 0.5);
+            }
+            #COMP1100 {
+                background-color: rgba(0, 255, 42, 0.5);
+            }
+            #COMP1510 {
+                background-color: rgba(255, 0, 0, 0.5);
+            }
+            #COMP1800 {
+                background-color: rgba(255, 255, 0, 0.5);
+            }
+            #COMP1116 {
+                background-color:rgba(0, 255, 255, 0.5);
+            }
+            #COMP1537 {
+                background-color: rgba(255, 0, 255, 0.5);
+            }
+            #COMP1113 {
+                background-color: rgba(0, 9, 136, 0.5);
+            }
+        </style>
     </head>
-    <body style="text-align: center;">
+    <body>
         <h1 style="font-family: Arial, Helvetica, sans-serif;">Ryan Leung</h1>
         <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> 
             My name is Ryan, I go to BCIT and currently enrolled in CST. <br>
@@ -29,15 +69,56 @@
         </p>
 
         <h4>Courses I am taking this Semester:</h4> 
-        <ul>
-            <a href="https://www.bcit.ca/study/outlines/20201086130"><li>COMP 1712</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201086121"><li>COMP 1100</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201086126"><li>COMP 1510</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201087569"><li>COMP 1800</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201086120"><li>COMP 1116</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201087561"><li>COMP 1537 (My Favorite)</li></a>
-            <a href="https://www.bcit.ca/study/outlines/20201086123"><li>COMP 1113</li></a>
-        </ul>
+            <ul>
+                <div class="courses" id="COMP1712" onclick="location.href='https\://www.bcit.ca/study/outlines/20201086130';" title="Read more on course details">
+                    <li>COMP 1712</li>
+                    <p class="desc">
+                        Business Analysis and Systems Design is the study of concepts, processes and tools that professionals use to plan and develop information systems to industry standards. Students learn how to ask implicit questions, to create and document communication plans and to make better decisions prior to creating a software system. Beginning with an introduction to the Software Development Life Cycle (SDLC), students work in teams to initiate the system process, analyze problems, discover requirements and create a logical design.
+                    </p> 
+                </div>
+                
+                <div class="courses" id="COMP1100" onclick="location.href='https\://www.bcit.ca/study/outlines/20201086121';" title="Read more on course details">
+                    <li>COMP 1100</li>
+                    <p class="desc">
+                        The course covers topics of importance to new and continuing students on how to balance school and related activities to enhance chances of success in their academic careers. In this course students will learn a variety of different techniques to improve study habits, note taking, and time management skills. The class will also present other topics of interest to CST students and will introduce students to various support systems at BCIT.
+                    </p>
+                </div>
+
+                <div class="courses" id="COMP1510" onclick="location.href='https\://www.bcit.ca/study/outlines/20201086126';" title="Read more on course details">
+                    <li>COMP 1510</li>
+                    <p class="desc">
+                        This hands-on course is the foundation for all future programming courses and complements COMP 1537 and COMP 1800. This course introduces the fundamental concepts of programming including design, development, testing, debugging simple programs, as well as error-handling, and problem solving.
+                    </p>
+                </div>
+                
+                <div class="courses" id="COMP1800" onclick="location.href='https\://www.bcit.ca/study/outlines/20201087569';" title="Read more on course details">
+                    <li>COMP 1800</li>
+                    <p class="desc">
+                        Students learn to work in a collaborative environment and complete a small-scale software project: a mobile-friendly web application. The course is focused on developing the essential technical skills that will allow a student to develop a functional web application project. The course takes students through the UX design process which includes creating and administering surveys & interviews, creating personas and user stories, designing wireframes, and performing user tests with a developed implementation that is based on the UX design process.
+                    </p>
+                </div>
+               
+                <div class="courses" id="COMP1116" onclick="location.href='https\://www.bcit.ca/study/outlines/20201086120';" title="Read more on course details">
+                    <li>COMP 1116</li>
+                    <p class="desc">
+                        Information technology professionals spend time each day communicating orally and in writing with their supervisors, colleagues and clients. As problem-solvers and entrepreneurs in industry, you need to communicate quickly, clearly, and effectively. This course will teach you how to be a professional and efficient communicator at work. You will write effective business correspondence and instructions and deliver a formal oral presentation to your set. The first term establishes the principles and basic patterns on which you will build more advanced applications in the second term.
+                    </p>
+                </div>
+                
+                <div class="courses" id="COMP1537" onclick="location.href='https\://www.bcit.ca/study/outlines/20201087561';" title="Read more on course details">
+                    <li>COMP 1537 (My Favorite)</li>
+                    <p class="desc">
+                        This course focuses on programming both front and back end for web application development using JavaScript on both front-end and back-end development. Topics include AJAX, DOM editing with JavaScript & jQuery, and JSON.
+                    </p>
+                </div>
+                
+                <div class="courses" id="COMP1113" onclick="location.href='https\://www.bcit.ca/study/outlines/20201087561';" title="Read more on course details">
+                    <li>COMP 1113</li>
+                    <p class="desc">
+                        COMP 1113 is partially discrete mathematics, partially an introduction to linear equations. The purpose of this course is to give a strong foundation for future technical and programming courses. The course is divided into three parts: (1) Boolean algebra and design of logic circuits; (2) number systems and data representation; and (3) functions, linear equations, vectors and matrices.
+                    </p>
+                </div>
+            </ul>
 
         <a href="https://www.bcit.ca/">
             <img src="images/BCITlogo.png" alt="bcit.ca" width="200px">
