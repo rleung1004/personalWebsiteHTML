@@ -1,3 +1,33 @@
-.rowContainer {
-    background-image: "images/spookyBackground.png";
+body, html {
+    margin: 0;
+    height: 100%;
+    background-color: black;
 }
+
+#score {
+    position: relative;
+    text-align: center;
+    color: white;
+    left: 50%;
+}
+
+#end {
+    position: absolute;
+    left : 50%;
+    top: 95%;
+}
+#container {
+    position: relative;
+    display: flex;
+    background: url(images/spookyBackground.png);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    flex-wrap: nowrap;
+}
+
+.zombie {
+    position: absolute;
+}
+
