@@ -5,23 +5,26 @@ body, html {
 }
 
 #score {
-    position: relative;
     text-align: center;
     color: white;
-    left: 50%;
 }
 
 #end {
-    position: absolute;
-    left : 50%;
-    top: 95%;
+    position: relative;
+    left: 50%;
 }
-#container {
+
+#menu {
+    height: 100%;
+    width: 100%;
+}
+
+#gameContainer {
     position: relative;
     display: flex;
     background: url(images/spookyBackground.png);
     background-size: cover;
-    height: 100%;
+    height: 80%;
     width: 100%;
     background-color: black;
     flex-wrap: nowrap;
