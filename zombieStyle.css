@@ -16,6 +16,7 @@ body, html {
 
 #scoreBoard {
     clear: both;
+    margin: 1%;
 }
 
 #time {
@@ -28,10 +29,32 @@ body, html {
     float: left;
 }
 
+#startScreen {
+    position: relative;
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/start-game.jpg);
+}
+
+#gameOverScreen {
+    position: relative;
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/game-over-gif.gif);
+}
+
 #gameContainer {
     position: relative;
     display: flex;
-    background: url(images/start-game.jpg);
+    background: url(images/spookyBackground.png);
     background-size: cover;
     height: 80%;
     width: 100%;

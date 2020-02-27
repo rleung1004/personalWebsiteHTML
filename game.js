@@ -1,10 +1,7 @@
-const gameContainer = document.getElementById("gameContainer");
 const menu = document.getElementById("menu");
-const scoreBoard = document.getElementById("score");
-const timeCount = document.getElementById("time");
-const endButton = document.getElementById("end");
 
 function spawnZombie() {
+    let gameContainer = document.getElementById("gameContainer");
     let zombie = document.createElement("img");
     zombie.className = "zombie alive";
     zombie.src = "images/zombie-cet.png";
@@ -39,7 +36,7 @@ function killZombie(zombie) {
 
 function updateTime() {
     window.timer--;
-    timeCount.innerHTML = "Time: " + timer;
+    document.getElementById("time").innerHTML = "Time: " + timer;
     if (time === 0) {
         endGame();
     }
@@ -47,7 +44,7 @@ function updateTime() {
 
 function updateScore() {
     window.score++;
-    scoreBoard.innerHTML = "Score: " + window.score;
+    document.getElementById("score").innerHTML = "Score: " + window.score;
 }
 
 function clearDeadZombies() {
@@ -63,7 +60,62 @@ function updateSpawnRate() {
     window.runGame = setInterval(spawnZombie, spawnRate);
 }
 
-function startGame() {
+function createScoreBoard() {
+    let node = document.createElement("div");
+    
+    let score = document.createElement("h1");
+    score.id = "score";
+    score.innerHTML = "Score: " + score;
+    
+    let time = document.createElement("h1");
+    time.id = "time";
+    time.innerHTML = "Time: " + timer;
+
+    node.appendChild(score);
+    node.appendChild(time);
+
+    menu.appendChild(node);
+
+}
+
+function createGameContainer() {
+    let node = document.createElement("div");
+    node.id = "gameContainer";
+
+    menu.appendChild(node);
+}
+
+function createEndButton() {
+    let node = document.createElement("div");
+    node.id = "endButton";
+    let button = document.createElement("button");
+    node.type = "button";
+    node.id = "end";
+    node.innerHTML = "End Game";
+
+    node.appendChild(button);
+    menu.appendChild(node);
+
+    window.endButton = document.getElementById("end");
+}
+
+function endGame() {
+    // stop all intervals
+    clearInterval(runGame);
+    clearInterval(time);
+    clearInterval(updateSpawn);
+    clearInterval(cleanUp);
+
+    // clear screen
+    menu.remove();
+
+    let node = document.createElement("div");
+    node.className = "gameOverScreen";
+    
+}
+
+menu.onclick = function startGame() {
+    this.onclick = null;
     window.timer = 100;
     window.score = 0;
     window.spawnRate = 3000;
@@ -71,12 +123,9 @@ function startGame() {
     window.time = setInterval(updateTime, 1500);
     window.cleanUp = setInterval(clearDeadZombies, 10000);
     window.updateSpawn = setInterval(updateSpawnRate, 30000);
-    gameContainer.style.background = "images/spookyBackground.png";
-}
-
-function endGame() {
-    clearInterval(runGame);
-    clearInterval(time);
-    clearInterval(updateSpawn);
-    clearInterval(cleanUp);
+    document.getElementById("startScreen").remove();
+    createScoreBoard();
+    createGameContainer();
+    createEndButton();
+    document.getElementById("score").innerHTML = "Score: " + window.score;
 }
