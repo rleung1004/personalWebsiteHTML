@@ -100,21 +100,30 @@ function createEndButton() {
 }
 
 function endGame() {
-    // stop all intervals
-    clearInterval(runGame);
-    clearInterval(time);
-    clearInterval(updateSpawn);
-    clearInterval(cleanUp);
+    if (!window.gameOver) {
+        // stop all intervals
+        clearInterval(runGame);
+        clearInterval(time);
+        clearInterval(updateSpawn);
+        clearInterval(cleanUp);
 
-    // clear screen
-    menu.remove();
+        // clear screen
+        menu.remove();
 
-    let node = document.createElement("div");
-    node.className = "gameOverScreen";
-    
+        let endMenu = document.createElement("div");
+        let node = document.createElement("div");
+        endMenu.id = "menu";
+        node.id = "gameOverScreen";
+        endMenu.appendChild(node);
+        document.getElementById("browser").appendChild(endMenu);
+    }
+    window.gameOver = true;
+    document.getElementById("gameOverScreen").onclick = function() {
+        window.location.reload();
+    };
 }
 
-menu.onclick = function startGame() {
+document.getElementById("startScreen").onclick = function startGame() {
     this.onclick = null;
     window.timer = 100;
     window.score = 0;
@@ -123,9 +132,11 @@ menu.onclick = function startGame() {
     window.time = setInterval(updateTime, 1500);
     window.cleanUp = setInterval(clearDeadZombies, 10000);
     window.updateSpawn = setInterval(updateSpawnRate, 30000);
+    window.gameOver = false;
     document.getElementById("startScreen").remove();
     createScoreBoard();
     createGameContainer();
     createEndButton();
     document.getElementById("score").innerHTML = "Score: " + window.score;
 }
+
