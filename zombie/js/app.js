@@ -1,4 +1,5 @@
 const menu = document.getElementById("menu");
+const meow = new Audio('../src/cat-meow.mp3')
 
 function spawnZombie() {
     let gameContainer = document.getElementById("gameContainer");
@@ -22,6 +23,7 @@ function spawnZombie() {
     }
 
     zombie.onclick = function e() {
+        meow.play();
         clearInterval(id);
         killZombie(zombie);
         this.onclick = null;
