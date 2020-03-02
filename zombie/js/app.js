@@ -1,5 +1,5 @@
 const menu = document.getElementById("menu");
-const meow = new Audio('../src/cat-meow.mp3')
+const meow = new Audio('../src/cat-meow.mp3');
 
 function spawnZombie() {
     let gameContainer = document.getElementById("gameContainer");
