@@ -89,9 +89,9 @@ function createEndButton() {
     let node = document.createElement("div");
     node.id = "endButton";
     let button = document.createElement("button");
-    node.type = "button";
-    node.id = "end";
-    node.innerHTML = "End Game";
+    button.type = "button";
+    button.id = "end";
+    button.innerHTML = "End Game";
 
     node.appendChild(button);
     menu.appendChild(node);
@@ -138,5 +138,5 @@ document.getElementById("startScreen").onclick = function startGame() {
     createGameContainer();
     createEndButton();
     document.getElementById("score").innerHTML = "Score: " + window.score;
+    window.endButton.onclick = endGame;
 }
-
