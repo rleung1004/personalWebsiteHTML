@@ -87,16 +87,15 @@ function createGameContainer() {
 
 function createEndButton() {
     let node = document.createElement("div");
-    node.id = "endButton";
-    let button = document.createElement("button");
-    button.type = "button";
-    button.id = "end";
+    node.id = "end";
+    let button = document.createElement("div");
+    button.id = "endButton";
     button.innerHTML = "End Game";
 
     node.appendChild(button);
     menu.appendChild(node);
 
-    window.endButton = document.getElementById("end");
+    window.endButton = document.getElementById("endButton");
 }
 
 function endGame() {
