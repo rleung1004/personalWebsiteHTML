@@ -15,6 +15,7 @@ function spawnZombie() {
     function frame() {
         if (pos.toFixed() === "93") {
             clearInterval(id);
+            clearAllZombies();
             endGame(false);
         } else {
             pos += 0.1;
@@ -40,6 +41,7 @@ function updateTime() {
     window.timer--;
     document.getElementById("time").innerHTML = "Time: " + timer;
     if (window.timer === 0) {
+        clearAllZombies();
         endGame(true);
     }
 }
@@ -55,6 +57,13 @@ function updateScore() {
 
 function clearDeadZombies() {
     let deadZombies = document.querySelectorAll(".dead");
+    deadZombies.forEach(function removeNode(node){
+        node.remove();
+    });
+}
+
+function clearAllZombies() {
+    let deadZombies = document.querySelectorAll(".zombie");
     deadZombies.forEach(function removeNode(node){
         node.remove();
     });
@@ -118,7 +127,6 @@ function endGame(win) {
         // stop all intervals
         clearInterval(runGame);
         clearInterval(time);
-        clearInterval(updateSpawn);
         clearInterval(cleanUp);
 
         // clear screen
@@ -127,6 +135,7 @@ function endGame(win) {
         let endMenu = document.createElement("div");
         let node = document.createElement("div");
         endMenu.id = "menu";
+        node.className = "endScreen";
         if (win) {
             node.id = "winScreen";
         } else {
@@ -136,14 +145,14 @@ function endGame(win) {
         document.getElementById("browser").appendChild(endMenu);
     }
     window.gameOver = true;
-    document.getElementById("gameOverScreen").onclick = function() {
+    document.querySelector(".endScreen").onclick = function() {
         window.location.reload();
     };
 }
 
 document.getElementById("startScreen").onclick = function startGame() {
     this.onclick = null;
-    window.timer = 100;
+    window.timer = 10;
     window.score = 0;
     window.spawnRate = 2000;
     window.runGame = setInterval(spawnZombie, spawnRate);
