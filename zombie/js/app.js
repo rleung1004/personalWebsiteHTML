@@ -15,7 +15,7 @@ function spawnZombie() {
     function frame() {
         if (pos.toFixed() === "93") {
             clearInterval(id);
-            endGame();
+            endGame(false);
         } else {
             pos += 0.1;
             zombie.style.left = pos + "%";
@@ -40,13 +40,17 @@ function updateTime() {
     window.timer--;
     document.getElementById("time").innerHTML = "Time: " + timer;
     if (window.timer === 0) {
-        endGame();
+        endGame(true);
     }
 }
 
 function updateScore() {
     window.score++;
     document.getElementById("score").innerHTML = "Score: " + window.score;
+    if (window.score % 10 === 0) {
+        modifySpawnRate(200);
+        updateSpawnRate();
+    }
 }
 
 function clearDeadZombies() {
@@ -57,9 +61,18 @@ function clearDeadZombies() {
 }
 
 function updateSpawnRate() {
-    spawnRate -= 600;
-    clearInterval(window.runGame);
-    window.runGame = setInterval(spawnZombie, spawnRate);
+    if (window.spawnRate > 400) {
+        clearInterval(window.runGame);
+        window.runGame = setInterval(spawnZombie, spawnRate);
+    }
+    console.log("More cats are coming!!!")
+}
+
+function modifySpawnRate(rate) {
+    if (window.spawnRate > 400) {
+        window.spawnRate -= rate
+    }
+    console.log("Wow you defended so many...")
 }
 
 function createScoreBoard() {
@@ -100,7 +113,7 @@ function createEndButton() {
     window.endButton = document.getElementById("endButton");
 }
 
-function endGame() {
+function endGame(win) {
     if (!window.gameOver) {
         // stop all intervals
         clearInterval(runGame);
@@ -114,7 +127,11 @@ function endGame() {
         let endMenu = document.createElement("div");
         let node = document.createElement("div");
         endMenu.id = "menu";
-        node.id = "gameOverScreen";
+        if (win) {
+            node.id = "winScreen";
+        } else {
+            node.id = "gameOverScreen";
+        }
         endMenu.appendChild(node);
         document.getElementById("browser").appendChild(endMenu);
     }
@@ -128,16 +145,17 @@ document.getElementById("startScreen").onclick = function startGame() {
     this.onclick = null;
     window.timer = 100;
     window.score = 0;
-    window.spawnRate = 3000;
+    window.spawnRate = 2000;
     window.runGame = setInterval(spawnZombie, spawnRate);
     window.time = setInterval(updateTime, 1200);
     window.cleanUp = setInterval(clearDeadZombies, 10000);
-    window.updateSpawn = setInterval(updateSpawnRate, 30000);
     window.gameOver = false;
     document.getElementById("startScreen").remove();
     createScoreBoard();
     createGameContainer();
     createEndButton();
     document.getElementById("score").innerHTML = "Score: " + window.score;
-    window.endButton.onclick = endGame;
+    window.endButton.onclick = function() {
+        endGame(false);
+    };
 }
