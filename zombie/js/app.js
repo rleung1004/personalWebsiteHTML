@@ -152,11 +152,11 @@ function endGame(win) {
 
 document.getElementById("startScreen").onclick = function startGame() {
     this.onclick = null;
-    window.timer = 10;
+    window.timer = 120;
     window.score = 0;
     window.spawnRate = 2000;
     window.runGame = setInterval(spawnZombie, spawnRate);
-    window.time = setInterval(updateTime, 1200);
+    window.time = setInterval(updateTime, 1000);
     window.cleanUp = setInterval(clearDeadZombies, 10000);
     window.gameOver = false;
     document.getElementById("startScreen").remove();
