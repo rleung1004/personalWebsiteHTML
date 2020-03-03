@@ -39,7 +39,7 @@ function killZombie(zombie) {
 function updateTime() {
     window.timer--;
     document.getElementById("time").innerHTML = "Time: " + timer;
-    if (time === 0) {
+    if (window.timer === 0) {
         endGame();
     }
 }
@@ -130,7 +130,7 @@ document.getElementById("startScreen").onclick = function startGame() {
     window.score = 0;
     window.spawnRate = 3000;
     window.runGame = setInterval(spawnZombie, spawnRate);
-    window.time = setInterval(updateTime, 1500);
+    window.time = setInterval(updateTime, 1200);
     window.cleanUp = setInterval(clearDeadZombies, 10000);
     window.updateSpawn = setInterval(updateSpawnRate, 30000);
     window.gameOver = false;
