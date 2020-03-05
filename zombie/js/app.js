@@ -1,4 +1,6 @@
 const menu = document.getElementById("menu");
+const minSpawnRate = 400;
+const spawnDecrease = 200;
 let meow = new Audio('src/cat-meow.mp3');
 
 function spawnZombie() {
@@ -50,7 +52,7 @@ function updateScore() {
     window.score++;
     document.getElementById("score").innerHTML = "Score: " + window.score;
     if (window.score % 10 === 0) {
-        modifySpawnRate(200);
+        modifySpawnRate(spawnDecrease);
         updateSpawnRate();
     }
 }
@@ -70,18 +72,18 @@ function clearAllZombies() {
 }
 
 function updateSpawnRate() {
-    if (window.spawnRate > 400) {
+    if (window.spawnRate > minSpawnRate) {
         clearInterval(window.runGame);
         window.runGame = setInterval(spawnZombie, spawnRate);
     }
-    console.log("More cats are coming!!!")
+    console.log("More cats are coming!!!");
 }
 
 function modifySpawnRate(rate) {
-    if (window.spawnRate > 400) {
-        window.spawnRate -= rate
+    if (window.spawnRate > minSpawnRate) {
+        window.spawnRate -= rate;
     }
-    console.log("Wow you defended so many...")
+    console.log("Wow you defended so many...");
 }
 
 function createScoreBoard() {
