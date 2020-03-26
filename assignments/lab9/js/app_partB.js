@@ -4,6 +4,8 @@ let maxHeight = window.innerHeight;
 const buttonWidth = 120;
 const buttonHeight = 60;
 const buttonMinTop = 120;
+const maxButtons = 10;
+const minButtons = 2
 let counter = 1;
 
 
@@ -124,7 +126,8 @@ function main() {
             error.innerHTML = "You did not enter a number.";
             document.body.appendChild(error);
         }
-        if (2 <= buttons && buttons <= 10) {
+
+        if (minButtons <= buttons && buttons <= maxButtons) {
             let left = 10; 
             let top = buttonMinTop;
             for (let i = 0; i < buttons; i++) {

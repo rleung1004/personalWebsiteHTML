@@ -84,6 +84,7 @@ function main() {
             error.innerHTML = "You did not enter a number.";
             document.body.appendChild(error);
         }
+        
         if (buttons >= minButtons && buttons <= maxButtons) {
             for (let i = 0; i < buttons; i++) {
                 let color = generateColor();
