@@ -1,0 +1,1 @@
+<?php header( 'Location: /assignments/lab9/index.html' ) ; ?>
