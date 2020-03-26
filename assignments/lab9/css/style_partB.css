@@ -1,0 +1,8 @@
+.unclicked {
+    font-size: 0;
+}
+
+.clicked {
+    text-align: center;
+    font-size: 16px;
+}
