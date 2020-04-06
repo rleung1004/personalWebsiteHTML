@@ -1,0 +1,102 @@
+
+#mainContainer {
+  position: relative;
+  /* border: 1px solid black; */
+  width: 95%;
+  height: 89vh;
+  margin: 5vh auto 0;
+}
+
+.top-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+}
+
+.guesses {
+  text-align: center;
+}
+
+.word-guess {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.keyboard-buttons {
+  text-transform: uppercase;
+  color: black;
+  border-color: rgba(0, 0, 0, 0.35);
+  padding: 0;
+  border-radius: 10px;
+  animation: colorChange 5s infinite;
+  width: 7%;
+  text-align: center;
+
+}
+@keyframes colorChange {
+  from {
+    background-color:white;
+  }
+  to {
+    background-color: tomato;
+  }
+}
+
+.keyboard-buttons.disabled,
+.keyboard-buttons:disabled {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.466);
+  background-color: rgba(243, 241, 239, 0.8);
+  border-color: rgba(0, 0, 0, 0.349);
+  animation: none;
+}
+
+.btn-reset {
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-reset:hover {
+  color: darkgrey;
+  background: transparent;
+  border-color: transparent;
+}
+
+#hangman {
+  width: 50%;
+  position: relative;
+  left: calc(50% - 12.5%);
+}
+
+@media (max-width: 600px) {
+  .keyboard-buttons {
+    text-transform: uppercase;
+    color: black;
+    border-color: rgba(0, 0, 0, 0.35);
+    padding: 0;
+    border-radius: 10px;
+    animation: colorChange 5s infinite;
+    width: 15%;
+    text-align: center;
+  }
+
+  #hangman {
+    width: 50%;
+    position: relative;
+    left: calc(50% - 12.5%);
+  }
+
+  #goal {
+    font-size: calc(20px + 2vw);
+  }
+
+  #wordHint {
+    font-size: 1rem;
+  }
+
+
+}
